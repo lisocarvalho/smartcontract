@@ -90,7 +90,7 @@ function registrarNomeEmpresa() {
         }
     });
 	
-	function obtemNomeAgente() {
+function obtemNomeAgente() {
     contratoUsoDeImagem.nomeAgente({from: contaUsuario, gas: 3000000, value: 0}, function (err, resultado) {
         if (err)    {
             console.log("Erro");
