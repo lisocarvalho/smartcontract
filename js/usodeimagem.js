@@ -72,7 +72,7 @@ function obtemNomeEmpresa() {
             objStatus.innerText = resultado;
         }
     });
-}
+
 
 function registrarNomeEmpresa() {
 	var statusTransacao = document.getElementById("statusTransacaoNomeEmpresa");
