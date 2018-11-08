@@ -58,7 +58,7 @@ const contratoUsoDeImagemABI = [
 	}
 ];
 
-var contratoUsoDeImagem = web3.eth.contract(contratoUsoDeImagemABI).at("0x70f87d7fe427843ad7304d0fee66818f135743e0");
+var contratoUsoDeImagem = web3.eth.contract(contratoUsoDeImagemABI).at("0x9d00df94db52803bf0fcdb248dd4db3bb25f0296");
 
 function obtemNomeEmpresa() {
     contratoUsoDeImagem.nomeEmpresa({from: contaUsuario, gas: 3000000, value: 0}, function (err, resultado) {
@@ -70,6 +70,23 @@ function obtemNomeEmpresa() {
             let objStatus = document.getElementById("spanNomeEmpresa");
             console.log(resultado);
             objStatus.innerText = resultado;
+        }
+    });
+}
+
+function registrarNomeEmpresa() {
+	var statusTransacao = document.getElementById("statusTransacaoNomeEmpresa");
+	var nomeEmpresa = document.formNomeEmpresa.campoNomeEmpresa.value;
+	statusTransacao.innerHTML = "Enviando transação. Por favor monitore seu Metamask.";
+	contratoUsoDeImagem.definirNomeDaEmpresa(nomeEmpresa, {from: contaUsuario, gas: 3000000, value: 0}, function (err, resultado) {
+        if (err)    {
+            console.log("Erro");
+			console.error(err);
+			statusTransacao.innerHTML = "Erro: " + err;
+        } else {
+            console.log("Resultado");
+            console.log(resultado);
+            statusTransacao.innerHTML = "Transação enviada ao Blockchain Ethereum. Faça a monitoração pelo hash: " + resultado;
         }
     });
 }
