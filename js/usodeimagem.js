@@ -111,7 +111,7 @@ function registrarAgente() {
 	var statusTransacao = document.getElementById("statusTransacaoNomeAgente");
 	var Agente = document.formAgente.campoAgente.value;
 	statusTransacao.innerHTML = "Enviando transação. Por favor monitore seu Metamask.";
-	contratoUsoDeImagem.definirNomeDoAgente(nomeAgente, {from: contaUsuario, gas: 3000000, value: 0}, function (err, resultado) {
+	contratoUsoDeImagem.definirAgente(nomeAgente, {from: contaUsuario, gas: 3000000, value: 0}, function (err, resultado) {
         if (err)    {
             console.log("Erro");
 			console.error(err);
