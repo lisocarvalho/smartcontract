@@ -107,7 +107,7 @@ function obtemDefinirAgente() {
 	
 }
 
-function registrarDefinirAgente() {
+function definirAgente() {
 	var statusTransacao = document.getElementById("statusTransacaoDefinirAgente");
 	var definirAgente = document.formDefinirAgente.campoDefinirAgente.value;
 	statusTransacao.innerHTML = "Enviando transação. Por favor monitore seu Metamask.";
