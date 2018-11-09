@@ -92,14 +92,14 @@ function registrarNomeEmpresa() {
 	
 }
 	
-function obtemAgente() {
-    contratoUsoDeImagem.Agente({from: contaUsuario, gas: 3000000, value: 0}, function (err, resultado) {
+function obtemDefinirAgente() {
+    contratoUsoDeImagem.definirAgente({from: contaUsuario, gas: 3000000, value: 0}, function (err, resultado) {
         if (err)    {
             console.log("Erro");
             console.error(err);
         } else {
             console.log("Resultado");
-            let objStatus = document.getElementById("spanAgente");
+            let objStatus = document.getElementById("spanDefinirAgente");
             console.log(resultado);
             objStatus.innerText = resultado;
         }
@@ -107,11 +107,11 @@ function obtemAgente() {
 	
 }
 
-function registrarAgente() {
-	var statusTransacao = document.getElementById("statusTransacaoAgente");
-	var Agente = document.formAgente.campoAgente.value;
+function registrarDefinirAgente() {
+	var statusTransacao = document.getElementById("statusTransacaoDefinirAgente");
+	var definirAgente = document.formDefinirAgente.campoDefinirAgente.value;
 	statusTransacao.innerHTML = "Enviando transação. Por favor monitore seu Metamask.";
-	contratoUsoDeImagem.definirAgente(nomeAgente, {from: contaUsuario, gas: 3000000, value: 0}, function (err, resultado) {
+	contratoUsoDeImagem.definirAgente(definirAgente, {from: contaUsuario, gas: 3000000, value: 0}, function (err, resultado) {
         if (err)    {
             console.log("Erro");
 			console.error(err);
